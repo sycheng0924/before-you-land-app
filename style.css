@@ -1,0 +1,83 @@
+:root {
+  --cover: #1c2b4a;
+  --paper-on-cover: #eceef4;
+  --ink: #191e2e;
+  --muted: #555d70;
+  --page: #eceef4;
+  --surface: #fbfbfd;
+  --line: #d6dae4;
+  --link: #1f4fa3;
+  --stamp: #b3261e;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cover: #151f37;
+    --ink: #e8eaf1;
+    --muted: #a3a9ba;
+    --page: #0f1320;
+    --surface: #181d2c;
+    --line: #2a3043;
+    --link: #93b4ff;
+    --stamp: #ff8a7a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --cover: #151f37;
+  --ink: #e8eaf1;
+  --muted: #a3a9ba;
+  --page: #0f1320;
+  --surface: #181d2c;
+  --line: #2a3043;
+  --link: #93b4ff;
+  --stamp: #ff8a7a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.band {
+  background: var(--cover);
+  color: var(--paper-on-cover);
+  padding: 40px 16px 48px;
+}
+.wrap { max-width: 680px; margin: 0 auto; }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--paper-on-cover);
+  text-decoration: none;
+}
+.brand img { width: 64px; height: 64px; border-radius: 15px; }
+.brand span { font: 600 30px/1.1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: -0.01em; }
+.band p { margin: 20px 0 0; max-width: 34em; opacity: 0.92; }
+main { padding: 8px 16px 64px; }
+h1 { font-size: 32px; line-height: 1.2; margin: 40px 0 8px; }
+h2 { font-size: 21px; line-height: 1.25; margin: 32px 0 6px; }
+p, li { max-width: 38em; }
+a { color: var(--link); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; border-radius: 4px; }
+/* The help box is drawn like one of the app's visa stamps: a double rule in stamp ink. */
+.contact {
+  background: var(--surface);
+  border: 1.5px solid color-mix(in srgb, var(--stamp) 55%, transparent);
+  outline: 0.75px solid color-mix(in srgb, var(--stamp) 30%, transparent);
+  outline-offset: -5px;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-top: 32px;
+}
+.contact h2 { margin-top: 0; }
+.meta { color: var(--muted); }
+footer {
+  border-top: 1px solid var(--line);
+  padding: 24px 16px 40px;
+  color: var(--muted);
+  font-size: 15px;
+}
